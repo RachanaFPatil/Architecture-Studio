@@ -1,0 +1,19 @@
+.cta-band {
+  background: var(--linen-200);
+  padding-block: var(--section);
+}
+
+.cta-band__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.cta-band__inner p { max-width: 36ch; }
+.cta-band__inner .btn { margin-top: var(--space-2); }
+
+@media (max-width: 600px) {
+  .cta-band__inner .btn { width: 100%; }
+}

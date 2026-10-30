@@ -1,0 +1,73 @@
+/* ==========================================================
+   FORM & FRAME: DESIGN TOKENS (single source of truth)
+   Edit values here; everything else reads from these.
+   ========================================================== */
+:root {
+  /* ---- Colour: brand ---- */
+  --forest: #263a32;
+  --forest-700: #1b2b25;
+  --forest-500: #3a5448;
+  --linen: #f4f0e7;
+  --linen-200: #ebe5d8;
+  --linen-300: #ddd5c4;
+  --clay: #c17a58;
+  --clay-700: #a4603f;
+  --white: #ffffff;
+
+  /* ---- Colour: roles ---- */
+  --bg: var(--linen);
+  --surface: var(--white);
+  --text: #1c2420;
+  --text-muted: #5b625d; /* 5.3:1 on linen */
+  --line: rgba(38, 58, 50, 0.18);
+  --line-strong: rgba(38, 58, 50, 0.45);
+  --error: #a8402a; /* 5.5:1 on white */
+  --error-bg: #f8e9e3;
+  --focus: var(--clay-700);
+
+  /* ---- Type ---- */
+  --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --fs-display: clamp(2.75rem, 1.7rem + 4.4vw, 5.25rem); /* hero  44 -> 84 */
+  --fs-hero: clamp(2.75rem, 1.6rem + 3vw, 4rem); /* homepage headline 44 -> 64 */
+  --fs-h1: clamp(2.5rem, 1.8rem + 3vw, 4.5rem); /* 40 -> 72 */
+  --fs-h2: clamp(2rem, 1.55rem + 1.9vw, 3rem); /* 32 -> 48 */
+  --fs-h3: clamp(1.5rem, 1.35rem + 0.6vw, 1.75rem); /* 24 -> 28 */
+  --fs-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); /* 17 -> 20 */
+  --fs-body: 1rem; /* 16 */
+  --fs-small: 0.875rem; /* 14 */
+  --fs-eyebrow: 0.75rem; /* 12 */
+
+  --lh-tight: 1.08;
+  --lh-snug: 1.25;
+  --lh-body: 1.65;
+
+  /* ---- Spacing (8px base) ---- */
+  --space-1: 0.5rem; /* 8  */
+  --space-2: 1rem; /* 16 */
+  --space-3: 1.5rem; /* 24 */
+  --space-4: 2rem; /* 32 */
+  --space-5: 3rem; /* 48 */
+  --space-6: 5rem; /* 80 */
+  --space-7: 6rem; /* 96 */
+  --section: clamp(3.5rem, 2rem + 6vw, 7rem); /* vertical section padding */
+
+  /* ---- Layout ---- */
+  /* side margin: 24px at 390px wide, growing to 120px at 1440px */
+  --margin: clamp(24px, calc(24px + (100vw - 390px) * 0.0914), 120px);
+  --container: 1200px;
+  --gutter: clamp(16px, 1.7vw, 24px);
+  --header-h: 72px;
+
+  /* ---- Shape / motion ---- */
+  --radius: 2px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 0.25s;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --header-h: 96px;
+  }
+}

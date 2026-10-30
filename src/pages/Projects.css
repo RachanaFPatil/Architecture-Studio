@@ -1,0 +1,92 @@
+.page-head {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-6) var(--space-5);
+}
+.page-head__title h1 { margin-top: var(--space-2); }
+.page-head__intro { max-width: 42ch; }
+
+@media (min-width: 900px) {
+  .page-head {
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    padding-block: var(--space-7) var(--space-5);
+  }
+  .page-head__intro { justify-self: end; padding-bottom: var(--space-1); }
+}
+
+/* ===== Filter bar ===== */
+.filters {
+  border-block: 1px solid var(--line);
+}
+
+.filters__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-block: var(--space-2);
+}
+
+.filters__row {
+  display: flex;
+  gap: 12px;
+  /* scrolls sideways on narrow screens */
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-inline: calc(-1 * var(--margin));
+  padding: 4px var(--margin);
+}
+.filters__row::-webkit-scrollbar { display: none; }
+
+.chip {
+  flex: none;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--forest);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.chip:hover { border-color: var(--forest); }
+.chip.is-active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--linen);
+}
+
+.filters__count {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+@media (min-width: 700px) {
+  .filters__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .filters__row {
+    margin-inline: 0;
+    padding-inline: 0;
+    overflow: visible;
+  }
+}
+
+/* ===== Grid ===== */
+.project-list { padding-top: var(--space-5); }
+
+.project-grid {
+  display: grid;
+  gap: var(--space-5) var(--gutter);
+  animation: fade 0.45s var(--ease) both;
+}
+
+@media (min-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .project-grid { grid-template-columns: repeat(3, 1fr); }
+}

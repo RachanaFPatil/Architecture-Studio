@@ -1,0 +1,70 @@
+.project-card__link {
+  display: block;
+  text-decoration: none;
+}
+
+.project-card__media { aspect-ratio: 4 / 3; }
+
+.project-card__zoom {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.7s var(--ease);
+}
+.project-card__link:hover .project-card__zoom,
+.project-card__link:focus-visible .project-card__zoom { transform: scale(1.04); }
+
+.project-card__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.project-card__name {
+  font-size: var(--fs-h3);
+  transition: color var(--dur) var(--ease);
+}
+.project-card__link:hover .project-card__name { color: var(--clay-700); }
+
+.project-card__arrow {
+  flex: none;
+  color: var(--clay-700);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.project-card__link:hover .project-card__arrow,
+.project-card__link:focus-visible .project-card__arrow {
+  opacity: 1;
+  transform: none;
+}
+
+.project-card__meta {
+  margin-top: 4px;
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+}
+
+/* touch screens have no hover, so keep the arrow visible */
+@media (hover: none) {
+  .project-card__arrow { opacity: 1; transform: none; }
+}
+
+/* "View project" tab: slides in on hover/focus, always visible on touch screens */
+.project-card__view {
+  position: absolute; left: 0; bottom: 0; z-index: 1;
+  padding: 10px var(--space-2);
+  background: var(--linen); color: var(--forest);
+  font-size: var(--fs-eyebrow); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  transform: translateY(101%);
+  transition: transform 0.45s var(--ease);
+}
+.project-card__link:hover .project-card__view,
+.project-card__link:focus-visible .project-card__view { transform: none; }
+@media (hover: none) {
+  .project-card__view { transform: none; transition: none; }
+  .project-card__link:active .project-card__zoom { transform: scale(1.04); }
+}
+.project-card__link:hover .project-card__zoom,
+.project-card__link:focus-visible .project-card__zoom { transform: scale(1.07); }

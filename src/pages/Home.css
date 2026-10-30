@@ -1,0 +1,157 @@
+/* ===== Hero ===== */
+.hero {
+  display: grid;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--margin) var(--space-5);
+}
+.hero__text > * {
+  animation: rise 0.8s var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+.hero__title {
+  font-size: var(--fs-hero);
+  max-width: 14ch;
+}
+.hero__lead { max-width: 40ch; }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+  width: 100%;
+}
+
+.hero__media {
+  clip-path: inset(0);
+  aspect-ratio: 13 / 12;
+  animation: wipe 1.3s var(--ease) both;
+}
+.hero__media > img { animation: settle 1.9s var(--ease) both; }
+
+.hero__caption {
+  position: absolute;
+  left: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--linen);
+  color: var(--forest);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background var(--dur) var(--ease);
+}
+.hero__caption:hover { background: var(--white); }
+.hero__caption-label {
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clay-700);
+}
+
+@media (max-width: 600px) {
+  .hero__actions .btn { width: 100%; }
+  .hero__caption { left: var(--space-2); bottom: var(--space-2); right: var(--space-2); }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    min-height: clamp(560px, calc(100svh - var(--header-h)), 700px);
+  }
+  .hero__text {
+    justify-content: center;
+    padding-block: var(--space-6);
+    padding-left: max(var(--margin), calc((100vw - var(--container)) / 2));
+    padding-right: var(--space-5);
+  }
+  .hero__media { aspect-ratio: auto; }
+}
+
+/* ===== Services ===== */
+.services { background: var(--white); }
+
+.services__title { margin-top: var(--space-2); }
+
+.services__grid {
+  display: grid;
+  gap: var(--space-5) var(--gutter);
+  margin-top: var(--space-5);
+}
+
+.service {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line-strong);
+}
+.service__num {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--clay-700);
+}
+.service h3 { margin: var(--space-2) 0 var(--space-1); }
+.service p { max-width: 34ch; color: var(--text-muted); }
+
+@media (min-width: 900px) {
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ===== Featured projects ===== */
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.featured__grid {
+  display: grid;
+  gap: var(--space-5) var(--gutter);
+}
+
+@media (min-width: 640px) {
+  .featured__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .featured__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .section-head { flex-direction: column; align-items: flex-start; gap: var(--space-1); }
+}
+
+/* ===== Film band ===== */
+.film { position: relative; background: var(--forest-700); }
+.film__video { aspect-ratio: 4 / 5; }
+.film__caption {
+  position: absolute; left: 0; right: 0; bottom: var(--space-3); z-index: 1;
+  display: flex; flex-direction: column; gap: 6px; pointer-events: none;
+}
+.film__caption .eyebrow { color: rgba(244, 240, 231, 0.85); text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5); }
+.film__link {
+  pointer-events: auto; align-self: flex-start; padding-block: 10px;
+  font-family: var(--font-display); font-size: var(--fs-h3); line-height: 1.1;
+  color: var(--linen); text-decoration: none; text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
+  background: linear-gradient(var(--linen), var(--linen)) 0 100% / 0 2px no-repeat;
+  transition: background-size 0.4s var(--ease);
+}
+.film__link:hover, .film__link:focus-visible { background-size: 100% 2px; }
+/* keep the caption clear of the video's Pause button */
+.film__video .ambient__toggle { top: var(--space-2); bottom: auto; }
+@media (min-width: 700px) {
+  .film__video { aspect-ratio: 21 / 9; }
+  .film__video .ambient__toggle { top: auto; bottom: var(--space-3); right: var(--margin); }
+}
