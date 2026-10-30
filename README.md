@@ -20,16 +20,17 @@ A modern, responsive architecture studio website concept showcasing residential,
 ## Run Locally
 
 Install dependencies:
-
+```bash
 npm install
+```
 
 Start development server:
-
+```bash
 npm run dev
-
+```
 Build for production:
-
+```bash
 npm run build
-
+```
 ## Project Status
 Designed as a fictional architecture studio website concept.
